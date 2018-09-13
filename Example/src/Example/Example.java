@@ -1,10 +1,5 @@
 package Example;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import MapExample.MapExample;
-
 public class Example {
 	public static void main(String[] args) {
 //		MapExample exp = new MapExample();
