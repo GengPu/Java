@@ -6,7 +6,9 @@ import java.net.Socket;
 
 public class ServerSocketExample {
 
-	public static void createServer(int port) {
+	private ServerSocketExample server;
+
+	public void createServer(int port) {
 		try {
 			if (port < 0) {
 				throw new NumberFormatException("port参数错误");
@@ -18,12 +20,12 @@ public class ServerSocketExample {
 			// 接收到请求后使用socket进行通信，创建BufferedReader用于读取数据
 			BufferedReader is = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			String line = is.readLine();
-			System.out.println("从客户端获取的字符串为：" + line);
+			System.out.println("get data:" + line);
 			// 创建发送数据器
 			PrintWriter pw = new PrintWriter(socket.getOutputStream());
-			pw.println("返回给客户端的字符串为：" + line);
+			pw.println("return data:" + "from Server");
 			pw.flush();
-			//关闭数据
+			// 关闭数据
 			pw.close();
 			is.close();
 			socket.close();
@@ -35,5 +37,26 @@ public class ServerSocketExample {
 	}
 
 	public static void main(String[] args) {
+
+		new ServerSocketExample();
+	}
+
+	public ServerSocketExample getServer() {
+		if (server == null) {
+			createServer(8080);
+			return new ServerSocketExample();
+		}
+
+		return this.server;
+	}
+	
+	private void setServer() {
+		
+		this.server = new ServerSocketExample();
+	}
+	
+	public ServerSocketExample() {
+
+		getServer();
 	}
 }
