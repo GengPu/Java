@@ -35,6 +35,6 @@ public class SocketClientExample {
 	}
 	public static void main(String[] args) {
 		
-		connServer("127.0.0.1", 8080,"come from Client");
+		connServer("127.0.0.1", 9080,"come from Client");
 	}
 }
