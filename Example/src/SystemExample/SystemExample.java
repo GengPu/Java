@@ -8,6 +8,7 @@ public class SystemExample {
 		Properties p = System.getProperties();
 		p.list(System.out);
 		
+		System.out.println(System.getProperty("file.encoding"));
 //		System.getProperty();
 	}
 	public void printAllProperty() {
